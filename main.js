@@ -7,12 +7,6 @@ let draws = 0;
 const gameOptions = ['rock', 'paper', 'scissors'];
 
 
-// User Prompt Selection
-function userPick() {
-    const userPick = prompt("Do you choose Rock, Paper, or Scissors?").toLowerCase();
-        return userPick;
-}
-
 // Random Computer Selection
 function computerPlay(arr) {
      const randomIndex = Math.floor(Math.random() * arr.length);
@@ -20,82 +14,65 @@ function computerPlay(arr) {
      return computerPick 
      }
 
+
+// Player vs computer function with score++
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
+    if (playerSelection === 'rock' || playerSelection === "paper" || playerSelection === "scissors") {
+        if (playerSelection === computerSelection) {
+        draws++;
         return draw;
-    } 
-    else if (playerSelection === 'rock' && computerSelection === 'scissors'){
+        } 
+        else if (playerSelection === 'rock' && computerSelection === 'scissors'){
+        playerScore++;
         return playerWinRound;
-    } 
-    else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        } 
+        else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        playerScore++;
         return playerWinRound;
-    }
-    else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        }
+        else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        playerScore++;
         return playerWinRound;
+        }
+        else {
+        computerScore++;
+        return computerWinRound
+        }
     }
-    else return computerWinRound;
+    else {
+        alert('please pick again');
     }
-
-
+}
     
-//function for player vs computer pick results
-//function playRound(playerSelection, computerSelection) {
-  //Rock Choice
-//   if (playerSelection == "rock") {
-//     if (computerSelection == "scissors") {
-//       return playerWinRound;
-//     } else if (computerSelection == "paper") {
-//       return computerWinRound;
-//     } else if (computerSelection == "rock") {
-//       return draw;
-//     } else {
-//       return "Something Went Wrong";
-//     }
-//   }
-//   //paper Choice
-//   else if (playerSelection == "paper") {
-//     if (computerSelection == "rock") {
-//       return playerWinRound;
-//     } else if (computerSelection == "scissors") {
-//       return computerWinRound;
-//     } else if (computerSelection == "paper") {
-//       return draw;
-//     } else {
-//       return "Something Went Wrong";
-//     }
-//   }
-//   //scissors Choice
-//   else if (playerSelection == "scissors") {
-//     if (computerSelection == "paper") {
-//       return playerWinRound;
-//     } else if (playerSelection == "scissors" && computerSelection == "rock") {
-//       return computerWinRound;
-//     } else if (playerSelection == "scissors" && computerSelection == "scissors") {
-//       return draw;
-//     } else {
-//       return "Something Went Wrong";
-//     }
-//   } else {
-//     return "That's not a valid choice";
-//   }
-//}
 
-// outputs for variables
+function gamePlay() {
+    for (i = 0 ; i <  1000; i++) {
+        const playerSelection = prompt("Do you choose Rock, Paper, or Scissors?").toLowerCase();
+        const computerSelection = computerPlay(gameOptions);
+        console.log(`My-Pick: ${playerSelection.toUpperCase()} vs Computer-Pick: ${computerSelection.toUpperCase()}`)
+        console.log(playRound(playerSelection, computerSelection));
+        console.log(`Wins: ${playerScore} - Draws: ${draws} - Losses: ${computerScore}`)
+
+        if (playerScore >= 5) {
+            alert('You Win, Great Job');
+            return;
+        } 
+        else if (computerScore === 5) {
+            alert('You Lose, be better');
+            return;
+        }
+    }
+
+}
+
+
+// outputs for return variables
 let playerWinRound = "Player wins this round!"
 let computerWinRound = "Computer wins this round!"
 let draw = "Its a Tie!"
 let playerWin = "Player wins the game! Congratulations!"
 let computerWin = "Computer wins the game! Congratulations!"
+let invalid = 'not a valid entry, please enter Rock, Paper, or Scissors'
 
-    
-  
-const playerSelection = userPick();
-  
-const computerSelection = computerPlay(gameOptions);
 
-console.log(`My-Pick: ${playerSelection.toUpperCase()} vs Computer-Pick: ${computerSelection.toUpperCase()}`)
-console.log(playRound(playerSelection, computerSelection));
-
-//   function gamePlay() {
-//       for
-//   }
+gamePlay()
