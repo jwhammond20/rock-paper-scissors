@@ -2,6 +2,7 @@
 let playerScore = 0;
 let computerScore = 0;
 let draws = 0;
+const choices = document.querySelectorAll('.choice');
 
 // Game Selection options
 const gameOptions = ['rock', 'paper', 'scissors'];
@@ -17,41 +18,48 @@ function computerPlay(arr) {
 
 // Player vs computer function with score++
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === 'rock' || playerSelection === "paper" || playerSelection === "scissors") {
         if (playerSelection === computerSelection) {
         draws++;
+        winner.innerHTML = `<h3>${draw}</h3>`;
         return draw;
         } 
         else if (playerSelection === 'rock' && computerSelection === 'scissors'){
         playerScore++;
+        winner.innerHTML = `<h3>${playerWinRound}</h3>`;
         return playerWinRound;
         } 
         else if (playerSelection === 'paper' && computerSelection === 'rock') {
         playerScore++;
+        winner.innerHTML = `<h3>${playerWinRound}</h3>`;
         return playerWinRound;
         }
         else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         playerScore++;
+        winner.innerHTML = `<h3>${playerWinRound}</h3>`;
         return playerWinRound;
         }
         else {
         computerScore++;
+        winner.innerHTML = `<h3>${computerWinRound}</h3>`;
         return computerWinRound
         }
     }
-    else {
-        alert('please pick again');
-    }
-}
     
+// grab click elements and add event listeners.    
+// document.getElementById('rock').addEventListener('click', gamePlay);
+// document.getElementById('paper').addEventListener('click', gamePlay);
+// document.getElementById('scissors').addEventListener('click', gamePlay);
+choices.forEach(choice => choice.addEventListener('click', gamePlay));
 
-function gamePlay() {
-    for (i = 0 ; i <  1000; i++) {
-        const playerSelection = prompt("Do you choose Rock, Paper, or Scissors?").toLowerCase();
+// Main Game Play - started from click event. ends after winner = 5.
+function gamePlay(e) {
+        const playerSelection = e.target.id;
         const computerSelection = computerPlay(gameOptions);
-        console.log(`My-Pick: ${playerSelection.toUpperCase()} vs Computer-Pick: ${computerSelection.toUpperCase()}`)
+        console.log(`My-Pick: ${playerSelection} vs Computer-Pick: ${computerSelection}`)
         console.log(playRound(playerSelection, computerSelection));
         console.log(`Wins: ${playerScore} - Draws: ${draws} - Losses: ${computerScore}`)
+        keepScore();
+        showPicks(playerSelection, computerSelection);
 
         if (playerScore >= 5) {
             alert('You Win, Great Job');
@@ -63,7 +71,23 @@ function gamePlay() {
         }
     }
 
-}
+ // display Score on screen    
+ function keepScore() {
+    score.innerHTML = `
+    <p>Player: ${playerScore}</p>
+    <p>Computer: ${computerScore}</p>
+    `;
+ }
+
+
+ function showPicks(playerSelection, computerSelection) {
+     selections.innerHTML = `
+     <p>Player: ${playerSelection}</p>
+     <p>Computer: ${computerSelection}</p>
+     <i class="far fa-hand-${playerSelection} fa-10x"></i>
+     <i class="far fa-hand-${computerSelection} fa-10x"></i>
+     `;
+ }
 
 
 // outputs for return variables
@@ -74,5 +98,3 @@ let playerWin = "Player wins the game! Congratulations!"
 let computerWin = "Computer wins the game! Congratulations!"
 let invalid = 'not a valid entry, please enter Rock, Paper, or Scissors'
 
-
-gamePlay()
