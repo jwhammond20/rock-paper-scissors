@@ -2,7 +2,14 @@
 let playerScore = 0;
 let computerScore = 0;
 let draws = 0;
+
 const choices = document.querySelectorAll('.choice');
+const modal = document.querySelector('.modal');
+const result = document.getElementById('result');
+const userPick = document.querySelector('.userPick');
+const compPick = document.querySelector('.compPick');
+const restart = document.getElementById('restart');
+
 
 // Game Selection options
 const gameOptions = ['rock', 'paper', 'scissors'];
@@ -46,10 +53,10 @@ function playRound(playerSelection, computerSelection) {
     }
     
 // grab click elements and add event listeners.    
-// document.getElementById('rock').addEventListener('click', gamePlay);
-// document.getElementById('paper').addEventListener('click', gamePlay);
-// document.getElementById('scissors').addEventListener('click', gamePlay);
 choices.forEach(choice => choice.addEventListener('click', gamePlay));
+window.addEventListener('click', clearModal);
+restart.addEventListener('click', restartGame);
+
 
 // Main Game Play - started from click event. ends after winner = 5.
 function gamePlay(e) {
@@ -60,41 +67,45 @@ function gamePlay(e) {
         console.log(`Wins: ${playerScore} - Draws: ${draws} - Losses: ${computerScore}`)
         keepScore();
         showPicks(playerSelection, computerSelection);
-
-        if (playerScore >= 5) {
-            alert('You Win, Great Job');
-            return;
-        } 
-        else if (computerScore === 5) {
-            alert('You Lose, be better');
-            return;
-        }
     }
 
  // display Score on screen    
  function keepScore() {
-    score.innerHTML = `
-    <p>Player: ${playerScore}</p>
-    <p>Computer: ${computerScore}</p>
-    `;
+    myScore.innerHTML = playerScore;
+    compScore.innerHTML = computerScore;
  }
 
 
  function showPicks(playerSelection, computerSelection) {
-     selections.innerHTML = `
-     <p>Player: ${playerSelection}</p>
-     <p>Computer: ${computerSelection}</p>
-     <i class="far fa-hand-${playerSelection} fa-10x"></i>
-     <i class="far fa-hand-${computerSelection} fa-10x"></i>
+     userPick.innerHTML = `
+     <h4>Player: ${playerSelection}</h4>
+     <i class="icon2 far fa-hand-${playerSelection} fa-9x"></i>`;
+     
+     compPick.innerHTML = `
+     <h4>Comp: ${computerSelection}</h4>
+     <i class="icon2 far fa-hand-${computerSelection} fa-9x"></i>
      `;
+     
+     modal.style.display = 'block';
  }
 
+ // Clear modal
+function clearModal(e) {
+    if (e.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+function restartGame() {
+  playerScore = 0;
+  computerScore = 0;
+  myScore.innerHTML = playerScore;
+  compScore.innerHTML = computerScore;
+}  
 
 // outputs for return variables
-let playerWinRound = "Player wins this round!"
-let computerWinRound = "Computer wins this round!"
+let playerWinRound = "You Win"
+let computerWinRound = "Computer Wins"
 let draw = "Its a Tie!"
 let playerWin = "Player wins the game! Congratulations!"
 let computerWin = "Computer wins the game! Congratulations!"
-let invalid = 'not a valid entry, please enter Rock, Paper, or Scissors'
-
