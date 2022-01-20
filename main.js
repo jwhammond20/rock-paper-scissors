@@ -107,7 +107,7 @@ function restartGame() {
 }  
 
 // outputs for return variables
-let playerWinRound = "You Wins"
+let playerWinRound = "You Win"
 let computerWinRound = "Computer Wins"
 let draw = "Its a Tie!"
 let playerWin = "Player wins the game! Congratulations!"
