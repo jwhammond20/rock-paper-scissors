@@ -9,7 +9,7 @@ const result = document.getElementById('result');
 const userPick = document.querySelector('.userPick');
 const compPick = document.querySelector('.compPick');
 const restart = document.getElementById('restart');
-
+const newRound = document.getElementById('newround');
 
 // Game Selection options
 const gameOptions = ['rock', 'paper', 'scissors'];
@@ -27,7 +27,8 @@ function computerPlay(arr) {
 function playRound(playerSelection, computerSelection) {
         if (playerSelection === computerSelection) {
         draws++;
-        winner.innerHTML = `<h3>${draw}</h3>`;
+        winner.innerHTML = `
+        <h3>${draw}</h3>`;
         return draw;
         } 
         else if (playerSelection === 'rock' && computerSelection === 'scissors'){
@@ -52,12 +53,6 @@ function playRound(playerSelection, computerSelection) {
         }
     }
     
-// grab click elements and add event listeners.    
-choices.forEach(choice => choice.addEventListener('click', gamePlay));
-window.addEventListener('click', clearModal);
-restart.addEventListener('click', restartGame);
-restart.addEventListener('touchstart', restartGame);
-
 
 // Main Game Play - started from click event. ends after winner = 5.
 function gamePlay(e) {
@@ -98,6 +93,10 @@ function clearModal(e) {
     }
   }
 
+function nextRound() {
+    modal.style.display = 'none';
+}  
+
 function restartGame() {
   playerScore = 0;
   computerScore = 0;
@@ -113,3 +112,9 @@ let computerWinRound = "Computer Wins"
 let draw = "Its a Tie!"
 let playerWin = "Player wins the game! Congratulations!"
 let computerWin = "Computer wins the game! Congratulations!"
+
+// grab click elements and add event listeners.    
+choices.forEach(choice => choice.addEventListener('click', gamePlay));
+window.addEventListener('click', clearModal);
+restart.addEventListener('click', restartGame);
+newRound.addEventListener('click', nextRound);

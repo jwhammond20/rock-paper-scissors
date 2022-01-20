@@ -240,6 +240,7 @@ h3 {
     max-width: 100%;
     overflow: auto;
     background: rgba(0, 0, 0, 0.5);
+    cursor: pointer
   }
   
 .modal-content {
@@ -253,6 +254,7 @@ h3 {
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
     animation-name: modalopen;
     animation-duration: var(--modal-duration);
+    cursor: pointer
   }
   
 .modal-content h1 {
