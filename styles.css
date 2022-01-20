@@ -120,6 +120,7 @@ h2 {
 }
 
 .tooltip .bottom {
+    text-align: center;
     min-width:100px; 
     max-width:200px;
     top:100%;
@@ -169,7 +170,7 @@ h2 {
   justify-content: space-evenly;
   align-items: center;
   padding: 20px;
-  margin-top: 10rem;
+  margin-top: 5.5rem;
   align-items: center; 
   width: 100%;
   overflow: auto;
@@ -185,7 +186,7 @@ h2 {
 .modal-wrapper {
     background-color: #eae2b7;
     border-radius: 20px;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     margin: 0;
 }
 
@@ -264,7 +265,7 @@ h3 {
     width: 100%;
     max-width: 100%;
     overflow: auto;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.541);
     cursor: pointer
   }
   
