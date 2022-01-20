@@ -169,7 +169,7 @@ h2 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 20px;
+  padding-top: 20px;
   margin-top: 5.5rem;
   align-items: center; 
   width: 100%;
@@ -186,7 +186,7 @@ h2 {
 .modal-wrapper {
     background-color: #eae2b7;
     border-radius: 20px;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     margin: 0;
 }
 
@@ -344,13 +344,13 @@ h3 {
     }
 
     h3 {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     h4 {
         letter-spacing: 1px;
         padding: 0;
-        font-size: 11px;
+        font-size: 12px;
     }
 
     p {
