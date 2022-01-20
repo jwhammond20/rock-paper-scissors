@@ -6,7 +6,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    cursor: pointer;
   }
 
 body {
@@ -166,15 +165,12 @@ h2 {
  
 
 .container2 {
-  border: 3px solid #eae2b7;
-  border-radius: 20px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: 20px;
-  margin: 50px 0;
+  margin-top: 10rem;
   align-items: center; 
-  background-color: #eae2b7;
   width: 100%;
   overflow: auto;
 }
@@ -186,7 +182,12 @@ h2 {
     padding: 5px;
     overflow: auto;
 }
-
+.modal-wrapper {
+    background-color: #eae2b7;
+    border-radius: 20px;
+    padding-bottom: 1rem;
+    margin: 0;
+}
 
 h3 {
     font-size: 3em;
@@ -206,6 +207,29 @@ h3 {
     justify-content: center;
     margin-top: 5rem;
 }
+
+.newround-btn {
+    margin: -10px -70px; 
+    position:relative;
+    left:50%;
+    background: #003049;
+    color: #f77f00;
+    padding: 0.5rem 1rem;
+    font-size: .9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid #f77f00;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.newround-btn:hover {
+    background: #eae2b7;
+    transform: scale(1.1);
+
+  }
 
 .restart-btn {
     display: flex;
@@ -302,6 +326,11 @@ h3 {
         padding-right: 0;
         margin-top: 1rem;
         border: none;
+    }
+
+    .newround-btn {
+        font-size: 12px;
+        margin: 0px -65px; 
     }
     .score-wrapper {
         font-size: 7.5px;
