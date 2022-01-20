@@ -297,9 +297,12 @@ h3 {
         font-size: 12px;
         padding-left: 0;
         padding-right: 0;
+        margin-top: 1rem;
+        border: none;
     }
     .score-wrapper {
         font-size: 7.5px;
+        
         /* letter-spacing: 2px; */
     }
 
