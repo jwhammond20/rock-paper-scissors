@@ -14,17 +14,18 @@ body {
     color: #333;
     background-color: #003049;
     min-height: 100vh;
+    max-width: 100%;
   }
 
 header { 
   border: 3px solid #eae2b7;
   border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
   padding: 20px;
   margin: 50px 0;
   align-items: center;  
+  text-align: center;
 }
+
 
 h1 {
     color: #fcbf49;
@@ -46,7 +47,7 @@ h4 {
 .score-container {
     background-color: #eae2b7;
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 10px 0px;
     text-align: center;
 }
 
@@ -58,9 +59,14 @@ h4 {
 }
 
 .score-wrapper {
-    display: flex;
-    justify-content: space-evenly;
-    width: 60%;
+    display: grid;
+    justify-content: center;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 15em));
+    width: 100%;
+    padding-top: 2rem;
+    max-width: 100%;
+    overflow: auto;
 }
 
 
@@ -76,12 +82,12 @@ h2 {
 
 
 .choice {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    text-align: center;
   }
 
 .icon2 {
@@ -105,25 +111,79 @@ h2 {
     text-align: center;
     color: #003049;
     border-radius: 10px;
-    
   }
+
+.tooltip {
+    display:inline-block;
+    position:relative;
+    text-align:left;
+}
+
+.tooltip .bottom {
+    min-width:100px; 
+    max-width:200px;
+    top:100%;
+    left:50%;
+    transform:translate(-50%, 0);
+    padding:8px 15px;
+    color:#f77f00;
+    background-color:#eae2b7;
+    font-weight:normal;
+    font-size:10px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    visibility:hidden; opacity:0; transition:opacity 0.8s;
+}
+
+.tooltip:hover .bottom {
+    visibility:visible; opacity:1;
+}
+
+.tooltip .bottom i {
+    position:absolute;
+    bottom:100%;
+    left:50%;
+    margin-left:-12px;
+    width:24px;
+    height:12px;
+    overflow:hidden;
+}
+
+.tooltip .bottom i::after {
+    content:'';
+    position:absolute;
+    width:12px;
+    height:12px;
+    left:50%;
+    transform:translate(-50%,50%) rotate(45deg);
+    background-color:#EEEEEE;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+ 
 
 .container2 {
   border: 3px solid #eae2b7;
   border-radius: 20px;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   padding: 20px;
   margin: 50px 0;
   align-items: center; 
   background-color: #eae2b7;
-
+  width: 100%;
+  overflow: auto;
 }
 
 .inner-box {
-    max-width: 800px;
+    max-width: 100%;
     margin: auto;
     width: 800px;
+    padding: 5px;
+    overflow: auto;
 }
 
 
@@ -177,15 +237,17 @@ h3 {
     top: 0;
     height: 100%;
     width: 100%;
+    max-width: 100%;
     overflow: auto;
     background: rgba(0, 0, 0, 0.5);
   }
   
-  .modal-content {
+.modal-content {
     background: #fff;
     text-align: center;
     margin: 10% auto;
-    width: 350px;
+    width: 100%;
+    max-width: 100%;
     border-radius: 10px;
     padding: 3rem;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
@@ -193,16 +255,16 @@ h3 {
     animation-duration: var(--modal-duration);
   }
   
-  .modal-content h1 {
+.modal-content h1 {
     margin-bottom: 1rem;
   }
   
-  .modal-content p {
+.modal-content p {
     font-size: 1.2rem;
     margin-top: 1rem;
   }
   
-  @keyframes modalopen {
+@keyframes modalopen {
     from {
       opacity: 0;
     }
@@ -213,19 +275,54 @@ h3 {
   }
   
 
-  @media (max-width: 700px) {
+@media (max-width: 700px) {
     .choice {
       font-size: 10px;
     }
+    header {
+        font-size: 10px;
+    }
+    .modal {
+        font-size: 10px;
+    }
   }
   
-  @media (max-width: 500px) {
+@media (max-width: 500px) {
     .choice {
-      font-size: 8px;
+      font-size: 10px;
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+    header {
+        font-size: 12px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .score-wrapper {
+        font-size: 7.5px;
+        /* letter-spacing: 2px; */
+    }
+
+    .winner {
+        padding: 0;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    h4 {
+        letter-spacing: 1px;
+        padding: 0;
+        font-size: 11px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+    .container2 {
+        font-size: 10px;
+        padding-left: 0;
+        padding-right: 0;
     }
   }
-
-  @media (max-width:500px) {
-    .container {
-        transform: scale(0.50);
-    }

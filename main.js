@@ -73,6 +73,7 @@ function gamePlay(e) {
  function keepScore() {
     myScore.innerHTML = playerScore;
     compScore.innerHTML = computerScore;
+    tieGame.innerHTML = draws;
  }
 
 
@@ -99,8 +100,10 @@ function clearModal(e) {
 function restartGame() {
   playerScore = 0;
   computerScore = 0;
+  draws = 0;
   myScore.innerHTML = playerScore;
   compScore.innerHTML = computerScore;
+  tieGame.innerHTML = draws;
 }  
 
 // outputs for return variables

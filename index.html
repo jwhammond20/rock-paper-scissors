@@ -11,13 +11,15 @@
 <body>
  <div class="container">
    <header> 
-    <h1>Rock<br>
-         Paper<br>
-          Scissors</h1>
+       <h1>Rock. Paper. Scissors.</h1>
     <div class="score-wrapper">
         <div class="score-container">
             <h4>Your score</h4>
             <p id="myScore">0</p>
+        </div>
+        <div class="score-container">
+            <h4>DRAWS</h4>
+            <p id="tieGame">0</p>
         </div>
         <div class="score-container">
             <h4>Comp. Score</h4>
@@ -26,30 +28,49 @@
     </div>
    </header>
     <h2>Select an option Below</h2>
-  <div class="choice">
-    <i id = "rock" class="icon far fa-hand-rock fa-9x"></i>
-    <i id = "paper" class="icon far fa-hand-paper fa-9x"></i>
-    <i id = "scissors" class="icon far fa-hand-scissors fa-9x"></i>
-  </div>
+<div class="choice">
+    <div class="btn btn-primary tooltip">
+      <i id = "rock" class="icon far fa-hand-rock fa-9x"></i>
+        <div class="bottom">
+            <h3>Rock</h3>
+            <i></i>
+        </div>
+    </div>
+    <div class="btn btn-primary tooltip">
+      <i id = "paper" class="icon far fa-hand-paper fa-9x"></i>
+       <div class="bottom">
+           <h3>Paper</h3>
+           <i></i>
+        </div>
+    </div>
+    <div class="btn btn-primary tooltip">
+      <i id = "scissors" class="icon far fa-hand-scissors fa-9x"></i>
+       <div class="bottom">
+           <h3>Scissors</h3>
+           <i></i>
+       </div>
+    </div>
+</div>    
   <div class="button">
-  <button id="restart" class="restart-btn">New Game</button>
+  <button id="restart" class="restart-btn">Restart</button>
   </div>
 </div>
-</div>
-</div>
+
 
 <!-- modal -->
 <div class ="modal" class= "modal" >
     <div class = inner-box>
-     <div class = "container2">
-      <div class="userPick">
-        </div>
-      <div id="winner" class="winner">
-      </div> 
-      <div class="compPick">
-        </div>    
-</div>
-  </div>
+      <div class = "container2">
+        <div class="userPick">
+         </div>
+        <div id="winner" class="winner">
+         </div> 
+        <div class="compPick">
+         </div>    
+      </div>
+    </div>
+    </div>
+
 
 <script src="main.js" type="text/javascript"></script>
 </body>
