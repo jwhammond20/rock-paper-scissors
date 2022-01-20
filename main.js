@@ -56,6 +56,7 @@ function playRound(playerSelection, computerSelection) {
 choices.forEach(choice => choice.addEventListener('click', gamePlay));
 window.addEventListener('click', clearModal);
 restart.addEventListener('click', restartGame);
+restart.addEventListener('touchstart', restartGame);
 
 
 // Main Game Play - started from click event. ends after winner = 5.
@@ -107,7 +108,7 @@ function restartGame() {
 }  
 
 // outputs for return variables
-let playerWinRound = "You Win"
+let playerWinRound = "You Wins"
 let computerWinRound = "Computer Wins"
 let draw = "Its a Tie!"
 let playerWin = "Player wins the game! Congratulations!"
